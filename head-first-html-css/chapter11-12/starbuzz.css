@@ -1,0 +1,147 @@
+body {
+  background-color: #b5a789;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: medium;
+}
+
+h1 {
+  font-size: 1.2em;
+  color: #954b4b;
+}
+
+header#top {
+  background-color: #675c47;
+  text-align: left;
+  margin: 0px 10px;
+}
+
+nav {
+  background-color: #efe5d0;
+  margin: 10px 10px 0px 10px;
+}
+
+nav ul {
+  margin: 0px;
+  list-style-type: none;
+  padding: 5px 0px;
+}
+
+nav ul li {
+  font-size: 1.3em;
+  display: inline;
+  padding: 5px 10px;
+}
+
+nav ul li a:link,
+nav ul li a:visited {
+  color: #954b4b;
+  border-bottom: none;
+  font-weight: bold;
+}
+
+nav ul li.selected {
+  background-color: #c8b99c;
+}
+
+time {
+  font-size: small;
+  line-height: 1em;
+}
+
+#coupon {
+  position: relative;
+  left: -120px;
+}
+
+#coupon a {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+#table-container {
+  display: table;
+  border-spacing: 10px;
+}
+
+#table-row {
+  display: table-row;
+}
+
+img#slogan {
+  float: right;
+}
+
+section#drinks {
+  display: table-cell;
+  vertical-align: top;
+  background-color: #efe5d0;
+  line-height: 1.5em;
+  padding: 17px 30px;
+  width: 20%;
+}
+
+section#main,
+section#blog {
+  display: table-cell;
+  vertical-align: top;
+  line-height: 1.5em;
+  text-align: justify;
+  background-color: #efe5d0;
+  background-image: url(images/background.gif);
+  background-position: top left;
+  padding: 17px 30px;
+}
+
+article {
+  padding: 3px 20px;
+  border: 2px solid #954b4b;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+aside {
+  display: table-cell;
+  vertical-align: top;
+  line-height: 1.5em;
+  text-align: justify;
+  background-color: #efe5d0;
+  background-image: url(images/background.gif);
+  background-position: bottom right;
+  padding: 17px 30px;
+  width: 25%;
+}
+
+.bean-heading {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  text-align: center;
+}
+
+.slogan {
+  color: #954b4b;
+}
+
+footer {
+  background-color: #675c47;
+  color: #efe5d0;
+  text-align: center;
+  padding: 15px;
+  margin: 0px 10px 10px 10px;
+  font-size: 0.9em;
+}
+
+a:link {
+  color: #b76666;
+  text-decoration: none;
+  border-bottom: thin dotted #b76666;
+}
+
+a:visited {
+  color: #675c47;
+  text-decoration: none;
+  border-bottom: thin dotted #675c47;
+}
+
+a:hover {
+  background-color: lightyellow;
+}
