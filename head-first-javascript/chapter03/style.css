@@ -1,0 +1,8 @@
+div#container {
+  margin-top: 100px;
+  text-align: center;
+}
+
+img#rock {
+  cursor: pointer;
+}

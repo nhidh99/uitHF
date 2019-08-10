@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+div.blog-content {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px 0px;
+    width: 400px;
+    margin: 10px auto;
+    text-align: center;
+    background-color: lightgray;
+}
+
+p.blog-date {
+    font-weight: bold;
+    font-style: italic;
+}
+
+p.blog-body {
+    padding: 0px 30px;
+}
+
+button#more-blogs {
+    display: block;
+    width: 150px;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 15px auto;
+}

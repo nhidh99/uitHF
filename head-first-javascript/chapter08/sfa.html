@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Stick Figure Adventure</title>
+    <link rel="stylesheet" href="sfa.css" />
+    <script type="text/javascript" src="sfa.js"></script>
+  </head>
+
+  <body>
+    <div style="margin-top:100px; text-align:center">
+      <img id="sceneimg" src="scene0.png" alt="Stick Figure Adventure" /><br />
+      <div id="scenetext"></div>
+      <br />
+      <button type="button" id="decision1" onclick="changeScene(1)">
+        Start Game
+      </button>
+      <br />
+      <button
+        type="button"
+        id="decision2"
+        style="visibility: hidden"
+        onclick="changeScene(2)"
+      ></button>
+      <div id="history"></div>
+    </div>
+  </body>
+</html>

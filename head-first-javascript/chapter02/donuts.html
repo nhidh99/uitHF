@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Duncan's Just-In-Time Donuts</title>
+    <link rel="stylesheet" type="text/css" href="donuts.css" />
+    <script src="donuts.js"></script>
+  </head>
+
+  <body>
+    <div id="frame">
+      <div class="heading">Duncan's Just-In-Time Donuts</div>
+      <div class="subheading">All donuts 50 cents each, cake or glazed!</div>
+      <div id="left">
+        <img src="donuttime.png" alt="Just-In-Time Donuts" />
+      </div>
+      <form name="orderform" action="donuts.php" method="POST">
+        <div class="field">
+          Name: <input type="text" id="name" name="name" value="" />
+        </div>
+        <div class="field">
+          # of cake donuts:
+          <input
+            type="number"
+            id="cakedonuts"
+            name="cakedonuts"
+            value="0"
+            onchange="updateOrder();"
+          />
+        </div>
+        <div class="field">
+          # of glazed donuts:
+          <input
+            type="number"
+            id="glazeddonuts"
+            name="glazeddonuts"
+            value="0"
+            onchange="updateOrder();"
+          />
+        </div>
+        <div class="field">
+          Minutes 'til pickup:
+          <input type="number" id="pickupminutes" name="pickupminutes" value="0" />
+        </div>
+        <div class="field">
+          Subtotal:
+          <input
+            type="text"
+            id="subtotal"
+            name="subtotal"
+            value="$0.00"
+            readonly="readonly"
+          />
+        </div>
+        <div class="field">
+          Tax:
+          <input type="text" id="tax" name="tax" value="$0.00" readonly="readonly" />
+        </div>
+        <div class="field">
+          Total:
+          <input
+            type="text"
+            id="total"
+            name="total"
+            value="$0.00"
+            readonly="readonly"
+          />
+        </div>
+        <div class="field">
+          <input
+            type="button"
+            value="Place Order"
+            onclick="placeOrder(this.form);"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
