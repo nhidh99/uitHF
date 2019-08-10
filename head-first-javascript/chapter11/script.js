@@ -5,12 +5,10 @@ class Blog {
     }
 }
 
-let blogs = []
-
 function createBlogContentElement(blog) {
     const date = document.createElement('p');
     date.className = 'blog-date';
-    date.innerHTML = blog.date.toLocaleDateString('en-US');
+    date.innerHTML = blog.date.toLocaleDateString('vi-VN');
 
     const body = document.createElement('p');
     body.className = 'blog-body';
@@ -23,36 +21,41 @@ function createBlogContentElement(blog) {
     return div;
 }
 
-function showBlogs(numEntries) {
-    numEntries = Math.min(numEntries, blogs.length);
-    const blogSection = document.getElementById('blog');
-    let curBlogIndex = 0;
+function showBlogs(blogs, numEntries) {
+    if (blogs) {
+        const blogSection = document.getElementById('blog');
+        let curBlogIndex = 0;
 
-    while (curBlogIndex < numEntries) {
-        const blog = blogs[curBlogIndex++];
-        const blogContent = createBlogContentElement(blog);
-        blogSection.appendChild(blogContent);
-    }
+        while (curBlogIndex < numEntries) {
+            const blog = blogs[curBlogIndex++];
+            const blogContent = createBlogContentElement(blog);
+            blogSection.appendChild(blogContent);
+        }
 
-    if (numEntries < blogs.length) {
-        const button = document.createElement('button');
-        button.innerHTML = 'Show all blogs';
-        button.id = "more-blogs";
-        button.addEventListener("click", () => showMoreBlogs(curBlogIndex));
-        blogSection.append(button);
+        if (numEntries < blogs.length) {
+            const button = document.createElement('button');
+            button.innerHTML = 'Show all blogs';
+            button.id = "more-blogs";
+            button.addEventListener("click", () => showMoreBlogs(blogs, curBlogIndex));
+            blogSection.append(button);
+        }
     }
+    else throw new Error('Cannot show blogs');
 }
 
-function showMoreBlogs(curBlogIndex) {
-    const blogSection = document.getElementById('blog');
-    const buttonMoreBlogs = document.getElementById('more-blogs');
-    blogSection.removeChild(buttonMoreBlogs);
+function showMoreBlogs(blogs, curBlogIndex) {
+    if (blogs) {
+        const blogSection = document.getElementById('blog');
+        const buttonMoreBlogs = document.getElementById('more-blogs');
+        blogSection.removeChild(buttonMoreBlogs);
 
-    while (curBlogIndex < blogs.length) {
-        const blog = blogs[curBlogIndex++];
-        const blogContent = createBlogContentElement(blog);
-        blogSection.appendChild(blogContent);
+        while (curBlogIndex < blogs.length) {
+            const blog = blogs[curBlogIndex++];
+            const blogContent = createBlogContentElement(blog);
+            blogSection.appendChild(blogContent);
+        }
     }
+    else throw new Error('Cannot show more blogs');
 }
 
 function getBlogs() {
@@ -62,12 +65,13 @@ function getBlogs() {
         if (isResponed) {
             const xmlData = ajaxReq.getResponseXML().getElementsByTagName('blog')[0];
             const entries = xmlData.getElementsByTagName('entry');
+            let blogs = [];
             for (const entry of entries) {
                 blogs.push(new Blog(getText(entry.getElementsByTagName('body')[0]),
                     new Date(getText(entry.getElementsByTagName('date')[0]))));
             }
             blogs.sort((blog1, blog2) => blog2.date - blog1.date);
-            showBlogs(3);
+            showBlogs(blogs, numEntries = 3);
         }
     });
 }
