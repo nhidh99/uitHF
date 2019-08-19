@@ -38,7 +38,7 @@ function changeNoteStatusInList(content, newStatus) {
 
 function changeNoteStatus(event) {
     const srcElement = event.srcElement;
-    const isDoneNote = srcElement.style.textDecoration === 'done note-content';
+    const isDoneNote = srcElement.className === 'done note-content';
 
     if (isDoneNote) {
         srcElement.className = 'to-do note-content';
