@@ -18,6 +18,17 @@ function loadNotes() {
     }
 }
 
+function addShortcutNewNoteButton() {
+    const button = document.getElementById('note-input');
+    button.addEventListener("keyup", e => {
+        e.preventDefault();
+        if (e.keyCode === 13) {
+            document.getElementById('add-todo').click();
+        }
+    });
+    button.focus();
+}
+
 function isValidNote(content) {
     if (content.trim() === '') return false;
     for (const note of noteList) {
@@ -68,6 +79,7 @@ function addNewNote() {
         addNote(input.value, 'to-do');
         noteList.push(new Note(input.value, 'to-do'));
         input.value = '';
+        input.focus();
     }
     localStorage.setItem("noteList", JSON.stringify(noteList));
 }
