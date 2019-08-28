@@ -1,0 +1,23 @@
+section#input {
+    margin-bottom: 0px;
+}
+
+section#input button {
+    display: block;
+    margin: 15px auto;
+    width: 400px;
+    border: none;
+    color: whitesmoke;
+}
+
+button#add-todo {
+    background-color: darkgreen;
+}
+
+button#remove-done {
+    background-color: chocolate;
+}
+
+button#remove-all-todo {
+    background-color: darkred;
+}
