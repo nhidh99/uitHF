@@ -1,0 +1,28 @@
+#all-content {
+  width: 800px;
+  background: linear-gradient(
+    90deg,
+    rgba(90, 190, 194, 0.8015581232492998) 0%,
+    rgba(24, 157, 203, 0.6643032212885154) 60%
+  );
+}
+
+#play-table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#banner {
+  width: 800.5px;
+  height: 320px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  width: 180px;
+  height: 180px;
+}
