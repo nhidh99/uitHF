@@ -4,9 +4,6 @@ using System.Collections;
 public class EggPool : MonoBehaviour
 {
     public GameObject eggPrefab;
-
-    //public List<Sprite> eggSprites = null;
-
     private Egg leftEgg;
     private Egg rightEgg;
     private Vector2 eggLeftPosition = new Vector2(-4, 6);

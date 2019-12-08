@@ -15,6 +15,10 @@ public class Egg : MonoBehaviour
     public static float spawnRateMin;
     public static float spawnRateMax;
 
+    public AudioSource audio;
+    public AudioClip scoreSound;
+    public AudioClip diedSound;
+
     void Start()
     {
         spawnX = transform.position.x;
@@ -23,6 +27,7 @@ public class Egg : MonoBehaviour
         spawnRateMax = 2.0f;
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         rb2d = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -57,6 +62,13 @@ public class Egg : MonoBehaviour
         if (other.gameObject.tag == "Basket")
         {
             GameControl.instance.BirdScored();
+            audio.clip = scoreSound;
+            audio.Play();
+        }
+        else
+        {
+            audio.clip = diedSound;
+            audio.Play();
         }
     }
 }

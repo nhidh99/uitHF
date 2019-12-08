@@ -7,7 +7,7 @@ public class ColumnPool : MonoBehaviour
     public int columnPoolSize = 5;                                  
     public static float spawnRateMin = 2.5f;
     public static float spawnRateMax = 5f;         
-    public float spawnYPosition = -4.0f;
+    public float spawnYPosition = -3.5f;
     private float spawnRate = 4f;              
 
     private Column[] columns;                                  
@@ -32,23 +32,26 @@ public class ColumnPool : MonoBehaviour
 
     void Update()
     {
-        timeSinceLastSpawned += Time.deltaTime;
-
-        if (timeSinceLastSpawned >= spawnRate)
+        if (GameControl.instance.gameStart)
         {
-            spawnRate = Random.Range(spawnRateMin, spawnRateMax);
-            timeSinceLastSpawned = 0f;
+            timeSinceLastSpawned += Time.deltaTime;
 
-            Sprite[] sprites = GameControl.instance.sprites;
-            int spriteIndex = Random.Range(0, sprites.Length);
-            Sprite sprite = sprites[spriteIndex];
-
-            columns[currentColumn].changeSprite(sprite);
-            columns[currentColumn].transform.position = new Vector2(spawnXPosition, spawnYPosition);
-
-            if (++currentColumn >= columnPoolSize)
+            if (timeSinceLastSpawned >= spawnRate)
             {
-                currentColumn = 0;
+                spawnRate = Random.Range(spawnRateMin, spawnRateMax);
+                timeSinceLastSpawned = 0f;
+
+                Sprite[] sprites = GameControl.instance.sprites;
+                int spriteIndex = Random.Range(0, sprites.Length);
+                Sprite sprite = sprites[spriteIndex];
+
+                columns[currentColumn].changeSprite(sprite);
+                columns[currentColumn].transform.position = new Vector2(spawnXPosition, spawnYPosition);
+
+                if (++currentColumn >= columnPoolSize)
+                {
+                    currentColumn = 0;
+                }
             }
         }
     }

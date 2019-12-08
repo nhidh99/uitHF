@@ -13,6 +13,8 @@ public class GameControl : MonoBehaviour
     public bool gameOver = false;
     public Sprite[] sprites;
 
+    private AudioSource audio;
+
     void Awake()
     {
         if (instance == null)
@@ -33,17 +35,17 @@ public class GameControl : MonoBehaviour
     {
         countText.text = "Count: " + (++count).ToString();
 
-        if (count == 30)
+        if (count == 45)
         {
             gameOver = true;
         }
 
         if (count != 0 && count % 5 == 0)
         {
-            Egg.spawnRateMin *= 0.8f;
-            Egg.spawnRateMax *= 0.8f;
-            Egg.gravityScaleMin *= 1.1f;
-            Egg.gravityScaleMax *= 1.1f;
+            Egg.spawnRateMin *= 0.75f;
+            Egg.spawnRateMax *= 0.75f;
+            Egg.gravityScaleMin *= 1.2f;
+            Egg.gravityScaleMax *= 1.2f;
         }
     }
 

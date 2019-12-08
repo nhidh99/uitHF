@@ -1,11 +1,19 @@
 let flip_count = 0;
 let prev_card = null;
 let isChecking = false;
+let flip_audio = null;
+
+function playFlipSound() {
+    flip_audio.pause();
+    flip_audio.currentTime = 0;
+    flip_audio.play();
+}
 
 function loadCards() {
+    flip_audio = document.getElementById('flip-audio');
     const rows = document.getElementsByClassName("play-row");
     const nums = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
-
+    
     for (const row of rows) {
         for (let i = 0; i < 4; i++) {
             const index = Math.floor(Math.random() * nums.length);
@@ -34,6 +42,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const openCard = async (card) => {
     if (isChecking) return;
 
+    playFlipSound();
     card.style.transform = "rotateY(180deg)";
     card.onclick = () => closeCard(card);
 
@@ -49,7 +58,7 @@ const openCard = async (card) => {
             card.onclick = null;
 
             // Delay and check card
-            await sleep(600);
+            await sleep(1000);
             const prev_name = prev_card.getAttribute("name");
             const cur_name = card.getAttribute("name");
 
@@ -68,6 +77,7 @@ const openCard = async (card) => {
 }
 
 const closeCard = (card) => {
+    playFlipSound();
     card.style.transform = "";
     card.onclick = () => openCard(card);
     flip_count--;

@@ -4,10 +4,10 @@ using System.Collections;
 public class ColumnPool : MonoBehaviour
 {
     public GameObject columnPrefab;                                   
-    public int columnPoolSize = 5;                                  
-    public float spawnRate = 3f;                                   
+    public int columnPoolSize = 7;                                  
+    public float spawnRate = 2.0f;                                   
     public float columnMin = 0.0f;                                  
-    public float columnMax = 3.5f;                                  
+    public float columnMax = 3.0f;                                  
 
     private GameObject[] columns;                                  
     private int currentColumn = 0;                               
@@ -30,18 +30,21 @@ public class ColumnPool : MonoBehaviour
 
     void Update()
     {
-        timeSinceLastSpawned += Time.deltaTime;
-
-        if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate)
+        if (GameControl.instance.gameStart)
         {
-            timeSinceLastSpawned = 0f;
-            float spawnYPosition = Random.Range(columnMin, columnMax) - 4.5f;
+            timeSinceLastSpawned += Time.deltaTime;
 
-            columns[currentColumn].transform.position = new Vector2(spawnXPosition, spawnYPosition);
-
-            if (++currentColumn >= columnPoolSize)
+            if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate)
             {
-                currentColumn = 0;
+                timeSinceLastSpawned = 0f;
+                float spawnYPosition = Random.Range(columnMin, columnMax) - 5.0f;
+
+                columns[currentColumn].transform.position = new Vector2(spawnXPosition, spawnYPosition);
+
+                if (++currentColumn >= columnPoolSize)
+                {
+                    currentColumn = 0;
+                }
             }
         }
     }

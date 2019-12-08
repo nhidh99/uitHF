@@ -9,9 +9,14 @@ public class GameControl : MonoBehaviour
     public static GameControl instance;          
     public Text scoreText;                       
 
-    private int score = 0;                       
-    public bool gameOver = false;                
+    private int score = 0;
+    public bool gameOver = false;
+    public bool gameStart = false;
     public float scrollSpeed = -5.0f;
+
+    private AudioSource audio;
+    public AudioClip scoreSound;
+    public AudioClip diedSound;
 
     public Sprite[] sprites;
 
@@ -23,10 +28,17 @@ public class GameControl : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
+        audio = GetComponent<AudioSource>();
+        audio.clip = scoreSound;
     }
 
     void Update()
     {
+        if (!gameStart && Input.GetMouseButtonDown(0))
+        {
+            gameStart = true;
+        }
+
         if (gameOver && Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -38,10 +50,11 @@ public class GameControl : MonoBehaviour
         if (gameOver)
             return;
         scoreText.text = "Score: " + (++score).ToString();
+        audio.Play();
 
-        if (score % 5 == 0)
+        if (score % 3 == 0)
         {
-            scrollSpeed *= 1.1f;
+            scrollSpeed *= 1.25f;
             ColumnPool.spawnRateMin *= 0.9f;
             ColumnPool.spawnRateMax *= 0.9f;
 
@@ -55,5 +68,7 @@ public class GameControl : MonoBehaviour
     public void BirdDied()
     {
         gameOver = true;
+        audio.clip = diedSound;
+        audio.Play();
     }
 }

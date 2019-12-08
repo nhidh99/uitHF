@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Bird.cs" />
      <Compile Include="Assets\Scripts\Column.cs" />
      <Compile Include="Assets\Scripts\ColumnPool.cs" />
+     <Compile Include="Assets\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Scripts\GameControl.cs" />
      <Compile Include="Assets\Scripts\RepeatingBackground.cs" />
      <Compile Include="Assets\Scripts\ScrollingObject.cs" />

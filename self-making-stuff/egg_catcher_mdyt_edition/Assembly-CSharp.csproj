@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Basket.cs" />
+     <Compile Include="Assets\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Scripts\Egg.cs" />
      <Compile Include="Assets\Scripts\EggPool.cs" />
      <Compile Include="Assets\Scripts\GameControl.cs" />

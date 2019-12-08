@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour
 {
     public static GameControl instance;          
-    public Text scoreText;                       
+    public Text scoreText;
+    public AudioSource audio;
 
-    private int score = 0;                       
+    private int score = 0;
+    public bool birdScore = false;
+    public bool gameStart = false;
     public bool gameOver = false;                
-    public float scrollSpeed = -1.5f;
+    public float scrollSpeed = -4.0f;
 
     void Awake()
     {
@@ -18,10 +21,17 @@ public class GameControl : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        if (!gameStart && Input.GetMouseButtonDown(0))
+        {
+            Bird.instance.SetGravityScale(1.0f);
+            gameStart = true;
+        }
+
         if (gameOver && Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -32,6 +42,7 @@ public class GameControl : MonoBehaviour
     {
         if (gameOver)
             return;
+        audio.Play();
         scoreText.text = "Score: " + (++score).ToString();
     }
 
