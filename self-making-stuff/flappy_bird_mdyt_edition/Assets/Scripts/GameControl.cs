@@ -26,13 +26,13 @@ public class GameControl : MonoBehaviour
 
     void Update()
     {
-        if (!gameStart && Input.GetMouseButtonDown(0))
+        if (!gameStart && Input.GetKeyDown("space"))
         {
             Bird.instance.SetGravityScale(1.0f);
             gameStart = true;
         }
 
-        if (gameOver && Input.GetMouseButtonDown(0))
+        if (gameOver && Input.GetKeyDown("space"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

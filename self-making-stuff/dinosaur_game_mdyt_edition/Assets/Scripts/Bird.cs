@@ -29,7 +29,7 @@ public class Bird : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0) && rb2d.gravityScale == 0)
+        if (Input.GetKeyDown("space") && rb2d.gravityScale == 0)
         {
             rb2d.velocity = new Vector2(0, 9f);
             rb2d.gravityScale = gravityScale;
@@ -54,6 +54,7 @@ public class Bird : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.gravityScale = 0f;
             anim.SetTrigger("Run");
+            anim.ResetTrigger("Flap");
         }
     }
 }

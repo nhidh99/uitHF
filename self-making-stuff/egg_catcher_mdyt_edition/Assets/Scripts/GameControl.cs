@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
-    public static GameControl instance;          
+    public static GameControl instance;
     private int score = 0;
     private int count = 0;
 
@@ -25,9 +25,9 @@ public class GameControl : MonoBehaviour
 
     void Update()
     {
-        if (gameOver && Input.GetMouseButtonDown(0))
+        if (gameOver && Input.GetKeyDown("space"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ReloadScene();
         }
     }
 
@@ -57,5 +57,14 @@ public class GameControl : MonoBehaviour
     public void BirdDied()
     {
         gameOver = true;
+    }
+
+    void ReloadScene()
+    {
+        Egg.spawnRateMin = 0.5f;
+        Egg.spawnRateMax = 2.0f;
+        Egg.gravityScaleMin = 1.2f;
+        Egg.gravityScaleMax = 0.3f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

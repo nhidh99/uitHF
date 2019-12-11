@@ -12,8 +12,8 @@ public class Egg : MonoBehaviour
 
     public static float gravityScaleMin = 0.3f;
     public static float gravityScaleMax = 1.2f;
-    public static float spawnRateMin;
-    public static float spawnRateMax;
+    public static float spawnRateMin = 0.5f;
+    public static float spawnRateMax = 2.0f;
 
     public AudioSource audio;
     public AudioClip scoreSound;
@@ -23,8 +23,6 @@ public class Egg : MonoBehaviour
     {
         spawnX = transform.position.x;
         spawnY = transform.position.y;
-        spawnRateMin = 0.5f;
-        spawnRateMax = 2.0f;
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         rb2d = GetComponent<Rigidbody2D>();
         audio = GetComponent<AudioSource>();

@@ -49,7 +49,7 @@ public class Bird : MonoBehaviour
     void Update()
     {
         if (isDead) return;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
             birdAudio.Play();
             anim.SetTrigger("Flap");
