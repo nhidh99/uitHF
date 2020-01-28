@@ -1,21 +1,16 @@
 package tacos.dao;
 
-import tacos.model.Taco;
+import tacos.model.Order;
 
 import javax.persistence.EntityManager;
 
-public class TacoDAO {
+public class OrderDAO {
 
     EntityManager em = HibernateUtil.getEntityManager();
 
-    public void insert(Taco taco) {
+    public void insert(Order order) {
         em.getTransaction().begin();
-        em.persist(taco);
+        em.persist(order);
         em.getTransaction().commit();
-    }
-
-    public Taco save(Taco taco) {
-        insert(taco);
-        return taco;
     }
 }

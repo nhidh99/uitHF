@@ -1,6 +1,7 @@
 package tacos.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Ingredient {
     @Column(name = "type")
     private String type;
 
+    @ToString.Exclude
     @ManyToMany(mappedBy = "ingredients")
     private List<Taco> tacos;
 

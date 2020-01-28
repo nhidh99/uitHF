@@ -1,10 +1,7 @@
 package tacos.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -24,4 +21,7 @@ public class Taco {
             joinColumns = @JoinColumn(name = "taco_id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private List<Ingredient> ingredients;
+
+    @ManyToMany(mappedBy = "tacos")
+    private List<Order> orders;
 }
