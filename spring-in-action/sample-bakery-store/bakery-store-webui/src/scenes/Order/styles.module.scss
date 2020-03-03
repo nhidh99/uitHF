@@ -1,0 +1,41 @@
+.order {
+    background-color: lightgoldenrodyellow;
+
+    .table {
+        tr {
+            counter-increment: row-num;
+
+            td:first-child::before {
+                font-weight: bold;
+                content: counter(row-num);
+            }
+        }
+
+        th,
+        td {
+            font-size: calc(12px + 0.4vw);
+            line-height: 2em;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        margin: 0px;
+        border-top: 2px dashed black;
+        border-bottom: 2px dashed black;
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        padding: 2vh 0px;
+    }
+
+    .title {
+        font-size: calc(20px + 0.5vw);
+    }
+
+    .total {
+        font-size: calc(14px + 0.5vw);
+    }
+}

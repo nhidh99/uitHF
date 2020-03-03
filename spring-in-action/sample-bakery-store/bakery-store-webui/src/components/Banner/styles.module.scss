@@ -1,0 +1,39 @@
+.banner {
+
+    $font-size: calc(10px + 0.5vw);
+    $button-font-size: calc(12px + 0.2vw);
+
+    background-color: #454545;
+    background-position: center;
+    padding: 10px calc(10px + 0.5vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    title {
+        font-weight: bold;
+        color: white;
+        display: inline;
+        font-size: $font-size;
+    }
+
+    button {
+        font-size: $font-size;
+    }
+
+    .dropDown {
+        display: inline;
+
+        button {
+            font-size: $button-font-size;
+        }
+
+        div {
+            margin-top: 15px;
+        }
+    }
+
+    .name {
+        text-decoration: none;
+    }
+}

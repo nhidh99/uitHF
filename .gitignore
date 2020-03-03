@@ -1,4 +1,3 @@
-
 head-first-servlet-and-jsp/chapter08b/WebContent/debug.log
 head-first-servlet-and-jsp/chapter12/WebContent/debug.log
 head-first-servlet-and-jsp/chapter12/WebContent/debug.log
@@ -6,3 +5,4 @@ self-making-stuff/flip-card-mdyt-edition/debug.log
 self-making-stuff/dinosaur_game_mdyt_edition/Assets/Sounds/sound.wav
 self-making-stuff/egg_catcher_mdyt_edition/Assets/Sounds/sound.wav
 self-making-stuff/flappy_bird_mdyt_edition/Assets/Sounds/sound.wav
+node_modules/

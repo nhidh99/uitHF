@@ -1,0 +1,49 @@
+.container {
+
+    $img-size: calc(120px + 12vw);
+    $font-size: calc(12px + 0.25vw);
+    $card-border-radius: 5px;
+
+    margin-top: 1vh;
+
+    .col {
+        margin: 0px;
+        padding: 0px;
+        flex-grow: 0;
+
+        :hover { 
+            background-color: whitesmoke;
+        }
+    }
+
+    .row {
+        justify-content: center;
+    }
+
+    .card {
+        background-color: lightgoldenrodyellow;
+        margin: 5px;
+        width: $img-size;
+        border-radius: $card-border-radius;
+        border: 2px solid black;
+    }
+
+    .cardImg {
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom: 2px solid black;
+    }
+
+    .name {
+        font-weight: bold;
+        font-size: $font-size;
+    }
+
+    .price {
+        color: red;
+        font-weight: 400;
+        font-size: $font-size;
+    }
+}
