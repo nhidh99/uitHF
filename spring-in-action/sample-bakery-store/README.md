@@ -4,18 +4,18 @@ A Single Web page application with ReactJS + Spring for practice.
 ![Alt text](bakery-store-webui/src/images/webpage.png?raw=true)
 
 ## Server-side (Backend)
-### `com.example.config:`
+### `com.example.config`
 - JwtTokenProvider: Generate, validate, expand, deactivate Json Web Token.
 - JwtAuthenticationFilter: Validate jwt from every request needs authorization and expand expiration for the token.
 - SecurityConfig: Spring Security using BCrypt Password-Encoder and JwtAuthenticationFilter for specific requests.
 - UserConfig: Validate user by username in Database.
 - WebConfig: Set View-Controllers for Single Web page Application to avoid not-found pages.
 
-### `com.example.dao | model:`
+### `com.example.dao | model`
 - Model and Data-Access-Object implementations.
 - Use JPA Repository with Hibernate Annotations.
 
-### `com.example.service:`
+### `com.example.service`
 - Rest Controllers to implement RESTful-API(s) for client-side.
 - Every request needs authorization must include Authorization headers: "Bearer {jwt}"
 
@@ -25,12 +25,12 @@ A Single Web page application with ReactJS + Spring for practice.
 - User data: undo the comments in the `BakeryStoreApplication.java` in the first run to insert new user(s).
 
 ## Client side (Frontend)
-### `pages:`
+### `pages`
 - index-page ("/"): products from database.
 - login-page ("/login"): simple login form.
 - order-page ("/order"): orders of logged user, or else redirect to login page.
 - error-page ("/error"): show when error occurs while server fails to handle request.
-### `plugins:`
+### `plugins`
 - bootstrap
 - reactstrap
 - node-sass
