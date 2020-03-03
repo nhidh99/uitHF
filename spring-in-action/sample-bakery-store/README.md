@@ -17,7 +17,7 @@ A Single Web page application with ReactJS + Spring for practice.
 
 ### `com.example.service:`
 - Rest Controllers to implement RESTful-API(s) for client-side.
-- Every request needs authorization must include Authorization headers: "Bearer {jwt}"
+- Every request needs authorization must include Authorization headers: `Bearer {jwt}`
 
 ### `database config:`
 - Database: MariaDB (if you want to use other databases, edit `resources/application.properties`)
