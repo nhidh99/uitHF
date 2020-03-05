@@ -1,7 +1,8 @@
 package com.example.service;
 
+import com.example.model.User;
 import org.springframework.http.ResponseEntity;
 
 public interface OrderService {
-    ResponseEntity<?> findMyOrders(String jwt);
+    ResponseEntity<?> findMyOrders(User user);
 }

@@ -19,7 +19,7 @@ A Single Web page application with ReactJS + Spring for practice.
 - Rest Controllers to implement RESTful-API(s) for client-side.
 - Every request needs authorization must include Authorization headers: `Bearer {jwt}`
 
-### `database config:`
+### `database config`
 - Database: MariaDB (if you want to use other databases, edit `resources/application.properties`)
 - Tables: import from `config\db-config.sql` to MariaDB (remember to customize queries for other databases).
 - User data: undo the comments in the `BakeryStoreApplication.java` in the first run to insert new user(s).
